@@ -1,0 +1,29 @@
+module RAM(
+    input clk,
+    input we,
+    input [3:0] addr,
+    input [7:0] din,
+    output [7:0] dout
+    );
+    reg [7:0] memory[15:0];
+    always@(posedge clk) begin
+      if(we)
+        memory[addr]<=din;
+      else
+        memory[addr]<=dout;
+     end
+endmodule
+
+testbench:
+module RAM_tb1();
+     reg clk,we;
+     reg [3:0] addr;
+     reg [7:0] din;
+     wire [7:0] dout;
+     RAM uut(.clk(clk),.we(we),.addr(addr),.din(din),.dout(dout));
+     always #25 clk=~clk;
+     initial begin
+       #20 clk=0;we=1;addr=4'b0001;din=8'b10101010;
+       #30 clk=0;we=0;addr=4'b0001;din=8'b10101010;
+     end
+endmodule
