@@ -30,3 +30,5 @@ Implement the RAM module in Verilog/VHDL.
 Compile and simulate the design using an HDL simulator (ModelSim, Xilinx Vivado, etc.).
 Run the testbench to verify read/write operations.
 Analyze and document the simulation results.
+
+![Image](https://github.com/user-attachments/assets/6297c210-1e4b-4504-997b-731d08c1e929)
